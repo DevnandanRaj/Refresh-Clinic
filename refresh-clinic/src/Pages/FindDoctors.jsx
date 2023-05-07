@@ -4,7 +4,7 @@ function FindDoctors() {
     return (
         <>
             <Navbar/>
-            Hello
+            Hello Test 1
         </>
     )
 }
