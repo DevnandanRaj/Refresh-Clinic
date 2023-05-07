@@ -32,7 +32,7 @@ function Navbar() {
         </Flex>
         <Flex align="center" justify="flex-end">
           <Stack direction="row" spacing={4} align="center">
-            <Link to="finddoctors"><Button
+            <Link to="/finddoctors"><Button
               color={textColor}
               variant="ghost"
               _hover={{ color: hoverColor }}

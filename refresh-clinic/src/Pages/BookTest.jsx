@@ -10,6 +10,7 @@ import {
   Textarea,
   useColorModeValue,
 } from "@chakra-ui/react";
+import Navbar from "../Components/Navbar";
 
 function BookTest() {
   const [name, setName] = useState("");
@@ -27,8 +28,10 @@ function BookTest() {
 
   const bgColor = useColorModeValue("gray.50", "gray.800");
 
-  return (
-    <Box p={4} bg={bgColor}>
+    return (
+
+        <Box p={4} bg={bgColor}>
+            <Navbar/>
       <Box maxW="md" mx="auto" mb={6}>
         <Text as="h1" fontSize="3xl" textAlign="center">
           Book Lab Test
@@ -82,7 +85,8 @@ function BookTest() {
           </Stack>
         </form>
       </Box>
-    </Box>
+            </Box>
+   
   );
 }
 
