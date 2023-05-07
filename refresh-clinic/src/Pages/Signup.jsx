@@ -1,26 +1,28 @@
 import { useState } from "react";
 import {
-  useToast,
+  Box,
   Button,
+  Container,
   FormControl,
   FormLabel,
+  Heading,
+  HStack,
   Input,
-  Modal,
-  ModalBody,
-  ModalCloseButton,
-  ModalContent,
-  ModalFooter,
-  ModalHeader,
-  ModalOverlay,
+  Stack,
+  Text,
+  Flex,
+  Image,
+  useToast,
 } from "@chakra-ui/react";
-
-function Signup({ isOpen, onClose }) {
+import { Link} from "react-router-dom";
+import RefreshLogo from "../Resources/RefreshLogo.png";
+function Signup() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const toast = useToast();
 
+  const toast = useToast();
   const handleSignup = async (event) => {
     event.preventDefault();
     try {
@@ -46,7 +48,7 @@ function Signup({ isOpen, onClose }) {
           duration: 3000,
           isClosable: true,
         });
-        onClose();
+     
       } else {
         setError(data.error);
       }
@@ -56,54 +58,81 @@ function Signup({ isOpen, onClose }) {
   };
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose}>
-      <ModalOverlay />
-      <ModalContent>
-        <ModalHeader>Signup</ModalHeader>
-        <ModalCloseButton />
-        <ModalBody>
-          {error && <p style={{ color: "red" }}>{error}</p>}
-          <FormControl isRequired>
-            <FormLabel>Username</FormLabel>
-            <Input
-              type="name"
-              value={username}
-              onChange={(e) => {
-                setUsername(e.target.value.trim());
-              }}
-            />
-          </FormControl>
-          <FormControl mt={4} isRequired>
-            <FormLabel>Email</FormLabel>
-            <Input
-              type="email"
-              value={email}
-              onChange={(e) => {
-                setEmail(e.target.value.trim());
-              }}
-            />
-          </FormControl>
-          <FormControl mt={4} isRequired>
-            <FormLabel>Password</FormLabel>
-            <Input
-              type="password"
-              value={password}
-              onChange={(e) => {
-                setPassword(e.target.value.trim());
-              }}
-            />
-          </FormControl>
-        </ModalBody>
-        <ModalFooter>
-          <Button colorScheme="blue" mr={3} onClick={handleSignup}>
-            Signup
-          </Button>
-          <Button variant="ghost" onClick={onClose}>
-            Cancel
-          </Button>
-        </ModalFooter>
-      </ModalContent>
-    </Modal>
+    <Container
+      maxW="lg"
+      py={{ base: "12", md: "24" }}
+      px={{ base: "0", sm: "8" }}
+    >
+      <Stack spacing="8">
+        <Stack spacing="6">
+          <Link to="/">
+            <Flex align="center" justify="center" mx="auto">
+              <Image src={RefreshLogo} alt="Logo" boxSize="120px" mr={4} />
+            </Flex>
+          </Link>
+          <Stack spacing={{ base: "2", md: "3" }} textAlign="center">
+            <Heading size={{ base: "xs", md: "sm" }}>Create an account</Heading>
+            <HStack spacing="1" justify="center">
+              <Text color="muted">Already have an account?</Text>
+              <Link to="/login">
+                <Button variant="link" colorScheme="blue">
+                  Log in
+                </Button>
+              </Link>
+            </HStack>
+          </Stack>
+        </Stack>
+        <Box
+          py={{ base: "0", sm: "8" }}
+          px={{ base: "4", sm: "10" }}
+          bg={{ base: "transparent", sm: "bg-surface" }}
+          boxShadow={{ base: "none", sm: "md" }}
+          borderRadius={{ base: "none", sm: "xl" }}
+        >
+          <form onSubmit={handleSignup}>
+            <Stack spacing="6">
+              <Stack spacing="5">
+                <FormControl>
+                  <FormLabel htmlFor="username">Username</FormLabel>
+                  <Input
+                    id="username"
+                    type="name"
+                    value={username}
+                    onChange={(event) => setUsername(event.target.value)}
+                  />
+                </FormControl>
+                <FormControl>
+                  <FormLabel htmlFor="email">Email address</FormLabel>
+                  <Input
+                    id="email"
+                    type="email"
+                    value={email}
+                    onChange={(event) => setEmail(event.target.value)}
+                  />
+                </FormControl>
+                <FormControl>
+                  <FormLabel htmlFor="password">Password</FormLabel>
+                  <Input
+                    id="password"
+                    type="password"
+                    value={password}
+                    onChange={(event) => setPassword(event.target.value)}
+                  />
+                </FormControl>
+              </Stack>
+              {error && (
+                <Text color="red.500" textAlign="center">
+                  {error}
+                </Text>
+              )}
+              <Button type="submit" colorScheme="blue">
+                Sign up
+              </Button>
+            </Stack>
+          </form>
+        </Box>
+      </Stack>
+    </Container>
   );
 }
 

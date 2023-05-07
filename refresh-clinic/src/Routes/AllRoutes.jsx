@@ -6,6 +6,7 @@ import PrivateRoute from '../Routes/PrivateRoute';
 import FindDoctors from '../Pages/FindDoctors';
 import BookTest from '../Pages/BookTest';
 import BookAppointment from '../Pages/BookAppointment';
+import Signup from '../Pages/Signup';
 
 const AllRoutes = () => {
   return (
@@ -13,6 +14,7 @@ const AllRoutes = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
+        <Route path='/signup' element={<Signup/>}/>
         <Route path="/finddoctors" element={<PrivateRoute><FindDoctors /></PrivateRoute>} />
         <Route path="/booktest" element={<PrivateRoute><BookTest /></PrivateRoute>} />
         <Route path="/bookappointment" element={<PrivateRoute><BookAppointment /></PrivateRoute>} />

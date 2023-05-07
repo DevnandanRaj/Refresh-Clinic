@@ -15,6 +15,124 @@
       "email": "eve.holt@reqres.in",
       "password": "cityslicka",
       "id": 3
+    },
+    {
+      "email": "Dev",
+      "password": "cityslicka",
+      "id": 4
+    },
+    {
+      "email": "Dev",
+      "password": "cityslicka",
+      "id": 5
+    },
+    {
+      "email": "Dev",
+      "password": "cityslicka",
+      "id": 6
+    },
+    {
+      "email": "Dev",
+      "password": "cityslicka",
+      "id": 7
+    },
+    {
+      "email": "Dev",
+      "password": "cityslicka",
+      "id": 8
+    },
+    {
+      "email": "Dev",
+      "password": "cityslicka",
+      "id": 9
+    },
+    {
+      "email": "Dev",
+      "password": "cityslicka",
+      "id": 10
+    },
+    {
+      "email": "Dev",
+      "password": "cityslicka",
+      "id": 11
+    },
+    {
+      "username": "Sahil",
+      "email": "admin@bfc.com",
+      "password": "cityslicka",
+      "id": 12
+    },
+    {
+      "username": "Dev1",
+      "email": "eve.holt@reqres.in",
+      "password": "cityslicka",
+      "id": 13
+    },
+    {
+      "username": "Dev1",
+      "email": "eve.holt@reqres.in",
+      "password": "cityslicka",
+      "id": 14
+    },
+    {
+      "username": "Dev1",
+      "email": "eve.holt@reqres.in",
+      "password": "cityslicka",
+      "id": 15
+    },
+    {
+      "username": "Dev2",
+      "email": "eve.holt@reqres.in",
+      "password": "cityslicka",
+      "id": 16
+    },
+    {
+      "username": "Dev2",
+      "email": "eve.holt@reqres.in",
+      "password": "cityslicka",
+      "id": 17
+    },
+    {
+      "username": "Dev2",
+      "email": "eve.holt@reqres.in",
+      "password": "cityslicka",
+      "id": 18
+    },
+    {
+      "username": "Dev2",
+      "email": "eve.holt@reqres.in",
+      "password": "cityslicka",
+      "id": 19
+    },
+    {
+      "username": "Dev2",
+      "email": "eve.holt@reqres.in",
+      "password": "cityslicka",
+      "id": 20
+    },
+    {
+      "username": "Dev2",
+      "email": "eve.holt@reqres.in",
+      "password": "cityslicka",
+      "id": 21
+    },
+    {
+      "username": "Dev2",
+      "email": "eve.holt@reqres.in",
+      "password": "cityslicka",
+      "id": 22
+    },
+    {
+      "username": "Dev2",
+      "email": "eve.holt@reqres.in",
+      "password": "cityslicka",
+      "id": 23
+    },
+    {
+      "username": "Dev2",
+      "email": "eve.holt@reqres.in",
+      "password": "cityslicka",
+      "id": 24
     }
   ]
 }

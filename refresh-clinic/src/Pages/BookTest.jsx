@@ -11,6 +11,7 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 import Navbar from "../Components/Navbar";
+import Footer from "../Components/Footer";
 
 function BookTest() {
   const [name, setName] = useState("");
@@ -29,9 +30,9 @@ function BookTest() {
   const bgColor = useColorModeValue("gray.50", "gray.800");
 
     return (
-
+      <>
+        <Navbar/>
         <Box p={4} bg={bgColor}>
-            <Navbar/>
       <Box maxW="md" mx="auto" mb={6}>
         <Text as="h1" fontSize="3xl" textAlign="center">
           Book Lab Test
@@ -84,9 +85,10 @@ function BookTest() {
             </Button>
           </Stack>
         </form>
-      </Box>
-            </Box>
-   
+        </Box>
+        </Box>
+         <Footer/>
+   </>
   );
 }
 
