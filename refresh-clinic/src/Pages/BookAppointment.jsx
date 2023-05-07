@@ -9,6 +9,8 @@ import {
   Textarea,
   VStack,
 } from "@chakra-ui/react";
+import Navbar from "../Components/Navbar";
+import Footer from "../Components/Footer";
 
 function BookAppointment() {
   const [name, setName] = useState("");
@@ -37,7 +39,9 @@ function BookAppointment() {
   };
 
   return (
-    <Box p={8}>
+    <>
+     <Navbar/>
+      <Box p={8}>
       <form onSubmit={handleSubmit}>
         <VStack spacing={4} alignItems="flex-start">
           <FormControl id="name" isRequired isInvalid={isError}>
@@ -108,7 +112,9 @@ function BookAppointment() {
           </Button>
         </VStack>
       </form>
-    </Box>
+      </Box>
+        <Footer/>
+      </>
   );
 }
 

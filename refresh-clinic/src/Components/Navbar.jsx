@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import {
   Box,
   Flex,
@@ -8,31 +8,27 @@ import {
   Image,
 } from "@chakra-ui/react";
 import RefreshLogo from "../Resources/RefreshLogo.png";
-import Login from "../Pages/Login";
-import Signup from "../Pages/Signup";
 import { AuthContext } from "../Context/AuthContextProvider";
 import { Link } from "react-router-dom";
 function Navbar() {
   const navBgColor = useColorModeValue("teal", "gray.800");
   const textColor = useColorModeValue("gray.800", "white");
   const hoverColor = useColorModeValue("gray.500", "gray.300");
-  const [showLogin, setLogin] = useState(false);
-  const [showSignup, setSignup] = useState(false);
-  const { isAuth, login, logout } = useContext(AuthContext);
-
+  const { isAuth,logout } = useContext(AuthContext);
   const handleLogout = () => {
     logout();
   };
-
   return (
     <Box bg={navBgColor} px={4}>
       <Flex h={24} alignItems="center" justifyContent="center">
+        <Link to="/">
         <Flex align="center">
           <Image src={RefreshLogo} alt="Logo" boxSize="90px" mr={4} />
-        </Flex>
+          </Flex>
+          </Link>
         <Flex align="center" justify="flex-end">
           <Stack direction="row" spacing={4} align="center">
-            <Link to="finddoctors"><Button
+            <Link to="/finddoctors"><Button
               color={textColor}
               variant="ghost"
               _hover={{ color: hoverColor }}
@@ -78,36 +74,32 @@ function Navbar() {
                 Logout
               </Button>
             ) : (
-              <>
+                <>
+                  <Link to='/login'>
                 <Button
                   color={textColor}
                   variant="ghost"
                   _hover={{ color: hoverColor }}
-                  onClick={() => setLogin(true)}
                 >
                   Login
-                </Button>
+                    </Button>
+                    </Link>
+                  <Link to='/signup'>
                 <Button
                   color={textColor}
                   variant="solid"
                   bg="green.400"
                   _hover={{ bg: "green.500" }}
-                  onClick={() => setSignup(true)}
                   disabled={isAuth}
                 >
                   Sign Up
-                </Button>
+                    </Button>
+                    </Link>
               </>
             )}
           </Stack>
         </Flex>
       </Flex>
-      {showLogin && (
-        <Login onClose={() => setLogin(false)} isOpen={showLogin} />
-      )}
-      {showSignup && (
-        <Signup onClose={() => setSignup(false)} isOpen={showSignup} />
-      )}
     </Box>
   );
 }
