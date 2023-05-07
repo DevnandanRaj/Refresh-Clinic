@@ -1,0 +1,20 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "john",
+      "password": "secret"
+    },
+    {
+      "id": 2,
+      "username": "jane",
+      "password": "password"
+    },
+    {
+      "username": "Dev",
+      "email": "eve.holt@reqres.in",
+      "password": "cityslicka",
+      "id": 3
+    }
+  ]
+}
