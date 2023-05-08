@@ -19,7 +19,7 @@ function BookAppointment() {
   const [fee, setFee] = useState(0);
   const [patientName, setPatientName] = useState("");
   const [patientPhone, setPatientPhone] = useState("");
-
+const [appointmentDate, setAppointmentDate] = useState("");
   useEffect(() => {
     const fetchDoctor = async () => {
       const response = await fetch(`http://localhost:${process.env.REACT_APP_JSON_SERVER_PORT}/doctors/${id}`);
@@ -32,12 +32,15 @@ function BookAppointment() {
 
   const handleTimeChange = (event) => {
     setTime(event.target.value);
-    const hourlyRate = 50;
+    const hourlyRate = 500;
     setFee(event.target.value * hourlyRate);
   };
 
   const handlePatientNameChange = (event) => {
     setPatientName(event.target.value);
+  };
+ const handleAppointmentDateChange = (event) => {
+    setAppointmentDate(event.target.value);
   };
 
   const handlePatientPhoneChange = (event) => {
@@ -53,6 +56,7 @@ const handleBookAppointment = () => {
       phone: patientPhone,
       fee:fee
     },
+      date: appointmentDate
   };
   localStorage.setItem("appointmentData", JSON.stringify(appointmentData));
 };
@@ -75,6 +79,10 @@ const handleBookAppointment = () => {
             <FormControl id="patient-phone" mb="4">
               <FormLabel>Patient Phone</FormLabel>
               <Input type="text" value={patientPhone} onChange={handlePatientPhoneChange} />
+            </FormControl>
+             <FormControl id="appointment-date" mb="4">
+              <FormLabel>Appointment Date</FormLabel>
+              <Input type="date" value={appointmentDate} onChange={handleAppointmentDateChange} />
             </FormControl>
             <FormControl id="time" mb="4">
               <FormLabel>Time (in hours)</FormLabel>

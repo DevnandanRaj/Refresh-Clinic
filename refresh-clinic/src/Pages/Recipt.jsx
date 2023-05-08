@@ -6,21 +6,21 @@ import RefreshLogo from "../Resources/RefreshLogo.png";
 
 function Receipt() {
   const appointmentData = JSON.parse(localStorage.getItem("appointmentData"));
-  const { doctor, time, fee } = appointmentData;
+  const { doctor, time, fee, date } = appointmentData;
   const { name: patientName, phone: patientPhone } = appointmentData.patient;
 
   return (
     <>
       <Navbar />
-      <Container maxW="container.xl" mt="8">
+      <Container maxW="container.xl" mt="8" marginTop="50px" marginBottom="50px">
         <Box borderWidth="1px" borderRadius="lg" overflow="hidden" boxShadow="base" p="8">
-          <Box textAlign="center" mb="4" justifyItems="center">
+          <Box textAlign="center" mb="4">
             <Image src={RefreshLogo} alt="RefreshClinic Logo" height="100" mx="auto" />
             <Text fontWeight="bold" fontSize="xl" mt="2">
               RefreshClinic
             </Text>
           </Box>
-          <Text fontWeight="bold" fontSize="2xl" mb="4">
+          <Text fontWeight="bold" fontSize="2xl" mb="4" textAlign="center">
             Appointment Details
           </Text>
           <Text fontWeight="bold" fontSize="lg" mb="4">
@@ -36,9 +36,12 @@ function Receipt() {
             Patient Phone: {patientPhone}
           </Text>
           <Text fontWeight="bold" fontSize="lg" mb="4">
+            Date: {date}
+          </Text>
+          <Text fontWeight="bold" fontSize="lg" mb="4" ml="auto">
             Time (in hours): {time}
           </Text>
-          <Text fontWeight="bold" fontSize="lg" mb="4">
+          <Text fontWeight="bold" fontSize="lg" mb="4" ml="auto">
             Fee: ₹{fee}
           </Text>
           <Link to="/finddoctors">
