@@ -20,119 +20,191 @@
       "email": "Dev",
       "password": "cityslicka",
       "id": 4
+    }
+  ],
+  "doctors": [
+    {
+      "id": 345,
+      "name": "Dr. Bowen Chan",
+      "gender": "M",
+      "image": "/images/doctor1.jpg",
+      "specialization": "General Practitioner",
+      "availability": {
+        "Monday": "8:30am - 5:30pm",
+        "Wednesday": "1:30pm - 7:30pm",
+        "Thrusday": "10am - 8pm",
+        "Friday": "9am - 12pm"
+      }
     },
     {
-      "email": "Dev",
-      "password": "cityslicka",
-      "id": 5
+      "id": 564,
+      "name": "Dr. Michael Lewis BSc, MD, CCFP",
+      "gender": "M",
+      "image": "/images/doctor4m.jpg",
+      "specialization": "Cardiologist",
+      "availability": {
+        "Monday": "9am - 5pm",
+        "Tuesday": "9am - 12pm",
+        "Friday": "9am - 12pm"
+      }
     },
     {
-      "email": "Dev",
-      "password": "cityslicka",
-      "id": 6
+      "id": 675,
+      "name": "Dr. Sharon Hind BScH, MD, CCFP",
+      "gender": "F",
+      "image": "/images/doctor3f.jpg",
+      "specialization": "Dermatologist",
+      "availability": {
+        "Monday": "10am - 2pm",
+        "Tuesday": "11am - 5pm",
+        "Wednesday": "10am - 5pm"
+      }
     },
     {
-      "email": "Dev",
-      "password": "cityslicka",
-      "id": 7
+      "id": 152,
+      "name": "Dr. Sheeja Mathai",
+      "gender": "F",
+      "image": "/images/doctor9m.jpg",
+      "specialization": "Pediatrician",
+      "availability": {
+        "Tuesday": "9am - 12pm",
+        "Wednesday": "2pm - 5pm",
+        "Friday": "9am - 12pm"
+      }
     },
     {
-      "email": "Dev",
-      "password": "cityslicka",
-      "id": 8
+      "id": 222,
+      "name": "Dr. Preston Tran",
+      "gender": "M",
+      "image": "/images/doctor8m.jpg",
+      "specialization": "Ophthalmologist",
+      "availability": {
+        "Monday": "1pm - 5pm",
+        "Tuesday": "10am - 12pm",
+        "Thursday": "2pm - 6pm"
+      }
     },
     {
-      "email": "Dev",
-      "password": "cityslicka",
-      "id": 9
+      "id": 789,
+      "name": "Dr. Emily Wong",
+      "gender": "F",
+      "image": "/images/doctor2f.jpg",
+      "specialization": "Neurologist",
+      "availability": {
+        "Monday": "9am - 12pm",
+        "Tuesday": "2pm - 7pm",
+        "Thursday": "9am - 12pm",
+        "Friday": "2pm - 6pm"
+      }
     },
     {
-      "email": "Dev",
-      "password": "cityslicka",
-      "id": 10
+      "id": 901,
+      "name": "Dr. David Kim",
+      "gender": "M",
+      "image": "/images/doctor5m.jpg",
+      "specialization": "Gastroenterologist",
+      "availability": {
+        "Tuesday": "10am - 1pm",
+        "Wednesday": "9am - 12pm",
+        "Thursday": "1pm - 4pm"
+      }
+    }
+  ],
+  "medicines": [
+    {
+      "name": "Paracetamol",
+      "description": "Used to relieve mild to moderate pain, fever, and inflammation.",
+      "price": 30.0
     },
     {
-      "email": "Dev",
-      "password": "cityslicka",
-      "id": 11
+      "name": "Ibuprofen",
+      "description": "Used to relieve pain, reduce fever, and inflammation.",
+      "price": 50.0
     },
     {
-      "username": "Sahil",
-      "email": "admin@bfc.com",
-      "password": "cityslicka",
-      "id": 12
+      "name": "Aspirin",
+      "description": "Used to relieve pain, reduce fever, and inflammation.",
+      "price": 20.0
     },
     {
-      "username": "Dev1",
-      "email": "eve.holt@reqres.in",
-      "password": "cityslicka",
-      "id": 13
+      "name": "Ciprofloxacin",
+      "description": "Used to treat bacterial infections.",
+      "price": 80.0
     },
     {
-      "username": "Dev1",
-      "email": "eve.holt@reqres.in",
-      "password": "cityslicka",
-      "id": 14
+      "name": "Metformin",
+      "description": "Used to treat type 2 diabetes.",
+      "price": 40.0
     },
     {
-      "username": "Dev1",
-      "email": "eve.holt@reqres.in",
-      "password": "cityslicka",
-      "id": 15
+      "name": "Lisinopril",
+      "description": "Used to treat high blood pressure.",
+      "price": 60.0
     },
     {
-      "username": "Dev2",
-      "email": "eve.holt@reqres.in",
-      "password": "cityslicka",
-      "id": 16
+      "name": "Simvastatin",
+      "description": "Used to lower cholesterol and triglycerides in the blood.",
+      "price": 70.0
     },
     {
-      "username": "Dev2",
-      "email": "eve.holt@reqres.in",
-      "password": "cityslicka",
-      "id": 17
+      "name": "Montelukast",
+      "description": "Used to treat asthma and seasonal allergies.",
+      "price": 90.0
     },
     {
-      "username": "Dev2",
-      "email": "eve.holt@reqres.in",
-      "password": "cityslicka",
-      "id": 18
+      "name": "Omeprazole",
+      "description": "Used to treat heartburn and stomach ulcers.",
+      "price": 35.0
     },
     {
-      "username": "Dev2",
-      "email": "eve.holt@reqres.in",
-      "password": "cityslicka",
-      "id": 19
+      "name": "Furosemide",
+      "description": "Used to treat high blood pressure and edema (fluid retention).",
+      "price": 25.0
     },
     {
-      "username": "Dev2",
-      "email": "eve.holt@reqres.in",
-      "password": "cityslicka",
-      "id": 20
+      "name": "Diazepam",
+      "description": "Used to treat anxiety, muscle spasms, and seizures.",
+      "price": 55.0
     },
     {
-      "username": "Dev2",
-      "email": "eve.holt@reqres.in",
-      "password": "cityslicka",
-      "id": 21
+      "name": "Amlodipine",
+      "description": "Used to treat high blood pressure and chest pain.",
+      "price": 65.0
     },
     {
-      "username": "Dev2",
-      "email": "eve.holt@reqres.in",
-      "password": "cityslicka",
-      "id": 22
+      "name": "Albuterol",
+      "description": "Used to treat asthma and other respiratory conditions.",
+      "price": 75.0
     },
     {
-      "username": "Dev2",
-      "email": "eve.holt@reqres.in",
-      "password": "cityslicka",
-      "id": 23
+      "name": "Fluoxetine",
+      "description": "Used to treat depression, anxiety, and obsessive-compulsive disorder (OCD).",
+      "price": 85.0
     },
     {
-      "username": "Dev2",
-      "email": "eve.holt@reqres.in",
-      "password": "cityslicka",
-      "id": 24
+      "name": "Prednisone",
+      "description": "Used to treat inflammation and allergic reactions.",
+      "price": 45.0
+    },
+    {
+      "name": "Warfarin",
+      "description": "Used to prevent blood clots and stroke.",
+      "price": 95.0
+    },
+    {
+      "name": "Levothyroxine",
+      "description": "Used to treat an underactive thyroid gland (hypothyroidism).",
+      "price": 50.0
+    },
+    {
+      "name": "Hydrochlorothiazide",
+      "description": "Used to treat high blood pressure and edema (fluid retention).",
+      "price": 30.0
+    },
+    {
+      "name": "Loratadine",
+      "description": "Used to treat allergies.",
+      "price": 40.0
     }
   ]
 }

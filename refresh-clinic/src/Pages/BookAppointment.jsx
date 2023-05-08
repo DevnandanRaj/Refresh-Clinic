@@ -1,120 +1,104 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { Link, useParams } from "react-router-dom";
 import {
   Box,
   Button,
+  Container,
   FormControl,
-  FormErrorMessage,
   FormLabel,
   Input,
-  Textarea,
-  VStack,
+  Text,
 } from "@chakra-ui/react";
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
 
 function BookAppointment() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [reason, setReason] = useState("");
-  const [date, setDate] = useState("");
+  const { id } = useParams();
+  const [doctor, setDoctor] = useState({});
   const [time, setTime] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
-  const [isError, setIsError] = useState(false);
+  const [fee, setFee] = useState(0);
+  const [patientName, setPatientName] = useState("");
+  const [patientPhone, setPatientPhone] = useState("");
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    setIsLoading(true);
-    setIsError(false);
+  useEffect(() => {
+    const fetchDoctor = async () => {
+      const response = await fetch(`http://localhost:${process.env.REACT_APP_JSON_SERVER_PORT}/doctors/${id}`);
+      const data = await response.json();
+      setDoctor(data);
+    };
 
-    // Simulate an API call to book the appointment
-    try {
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-      setIsLoading(false);
-      alert("Appointment booked successfully!");
-    } catch (error) {
-      setIsLoading(false);
-      setIsError(true);
-    }
+    fetchDoctor();
+  }, [id]);
+
+  const handleTimeChange = (event) => {
+    setTime(event.target.value);
+    const hourlyRate = 50;
+    setFee(event.target.value * hourlyRate);
   };
 
+  const handlePatientNameChange = (event) => {
+    setPatientName(event.target.value);
+  };
+
+  const handlePatientPhoneChange = (event) => {
+    setPatientPhone(event.target.value);
+  };
+const handleBookAppointment = () => {
+  const appointmentData = {
+    doctor,
+    time,
+    fee,
+    patient: {
+      name: patientName,
+      phone: patientPhone,
+      fee:fee
+    },
+  };
+  localStorage.setItem("appointmentData", JSON.stringify(appointmentData));
+};
   return (
     <>
-     <Navbar/>
-      <Box p={8}>
-      <form onSubmit={handleSubmit}>
-        <VStack spacing={4} alignItems="flex-start">
-          <FormControl id="name" isRequired isInvalid={isError}>
-            <FormLabel>Name</FormLabel>
-            <Input
-              type="text"
-              value={name}
-              onChange={(event) => setName(event.target.value)}
-            />
-            <FormErrorMessage>Something went wrong. Please try again.</FormErrorMessage>
-          </FormControl>
-
-          <FormControl id="email" isRequired isInvalid={isError}>
-            <FormLabel>Email</FormLabel>
-            <Input
-              type="email"
-              value={email}
-              onChange={(event) => setEmail(event.target.value)}
-            />
-            <FormErrorMessage>Something went wrong. Please try again.</FormErrorMessage>
-          </FormControl>
-
-          <FormControl id="phone" isRequired isInvalid={isError}>
-            <FormLabel>Phone</FormLabel>
-            <Input
-              type="tel"
-              value={phone}
-              onChange={(event) => setPhone(event.target.value)}
-            />
-            <FormErrorMessage>Something went wrong. Please try again.</FormErrorMessage>
-          </FormControl>
-
-          <FormControl id="reason" isRequired isInvalid={isError}>
-            <FormLabel>Reason for Appointment</FormLabel>
-            <Textarea
-              value={reason}
-              onChange={(event) => setReason(event.target.value)}
-            />
-            <FormErrorMessage>Something went wrong. Please try again.</FormErrorMessage>
-          </FormControl>
-
-          <FormControl id="date" isRequired isInvalid={isError}>
-            <FormLabel>Date</FormLabel>
-            <Input
-              type="date"
-              value={date}
-              onChange={(event) => setDate(event.target.value)}
-            />
-            <FormErrorMessage>Something went wrong. Please try again.</FormErrorMessage>
-          </FormControl>
-
-          <FormControl id="time" isRequired isInvalid={isError}>
-            <FormLabel>Time</FormLabel>
-            <Input
-              type="time"
-              value={time}
-              onChange={(event) => setTime(event.target.value)}
-            />
-            <FormErrorMessage>Something went wrong. Please try again.</FormErrorMessage>
-          </FormControl>
-
-          <Button
-            type="submit"
-            isLoading={isLoading}
-            loadingText="Submitting..."
-          >
-            Book Appointment
-          </Button>
-        </VStack>
-      </form>
-      </Box>
-        <Footer/>
-      </>
+      <Navbar />
+      <Container maxW="container.xl" mt="8">
+        <Box borderWidth="1px" borderRadius="lg" overflow="hidden" boxShadow="base" p="8">
+          <Text fontWeight="bold" fontSize="2xl" mb="4">
+            Book an Appointment with {doctor.name}
+          </Text>
+          <Text fontSize="lg" mb="4">
+            {doctor.availability ? "Available" : "Not available"}
+          </Text>
+          <form>
+            <FormControl id="patient-name" mb="4">
+              <FormLabel>Patient Name</FormLabel>
+              <Input type="text" value={patientName} onChange={handlePatientNameChange} />
+            </FormControl>
+            <FormControl id="patient-phone" mb="4">
+              <FormLabel>Patient Phone</FormLabel>
+              <Input type="text" value={patientPhone} onChange={handlePatientPhoneChange} />
+            </FormControl>
+            <FormControl id="time" mb="4">
+              <FormLabel>Time (in hours)</FormLabel>
+              <Input type="number" value={time} onChange={handleTimeChange} />
+            </FormControl>
+            <FormControl id="fee" mb="4">
+              <FormLabel>Fee</FormLabel>
+              <Input type="text" value={`₹${fee}`} readOnly />
+            </FormControl>
+            <Link to="/booking-success">
+              <Button colorScheme="blue" mb="4" onClick={handleBookAppointment}>
+                Book Appointment
+              </Button>
+            </Link>
+          </form>
+          <Link to="/finddoctors">
+            <Button colorScheme="gray" variant="outline">
+              Go back to find more doctors
+            </Button>
+          </Link>
+        </Box>
+      </Container>
+      <Footer />
+    </>
   );
 }
 

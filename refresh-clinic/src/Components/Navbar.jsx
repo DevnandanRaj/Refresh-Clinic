@@ -35,20 +35,21 @@ function Navbar() {
             >
               FindDoctor
             </Button></Link>
-          <Link to="/bookappointment"><Button
+          <Link to="/finddoctors"><Button
               color={textColor}
               variant="ghost"
               _hover={{ color: hoverColor }}
             >
               Book an Appointment
             </Button></Link>
+             <Link to="/medicines">
             <Button
               color={textColor}
               variant="ghost"
               _hover={{ color: hoverColor }}
             >
               Medicines
-            </Button>
+            </Button></Link>
           <Link to="/booktest">  <Button
               color={textColor}
               variant="ghost"
