@@ -110,101 +110,139 @@
       }
     }
   ],
-  "medicines": [
+   "medicines": [
     {
+      "id": 1,
       "name": "Paracetamol",
       "description": "Used to relieve mild to moderate pain, fever, and inflammation.",
-      "price": 30.0
+      "price": 30.0,
+      "quantity": 100
     },
     {
+      "id": 2,
       "name": "Ibuprofen",
       "description": "Used to relieve pain, reduce fever, and inflammation.",
-      "price": 50.0
+      "price": 50.0,
+      "quantity": 50
     },
     {
+      "id": 3,
       "name": "Aspirin",
       "description": "Used to relieve pain, reduce fever, and inflammation.",
-      "price": 20.0
+      "price": 20.0,
+      "quantity": 75
     },
     {
+      "id": 4,
       "name": "Ciprofloxacin",
       "description": "Used to treat bacterial infections.",
-      "price": 80.0
+      "price": 80.0,
+      "quantity": 25
     },
     {
+      "id": 5,
       "name": "Metformin",
       "description": "Used to treat type 2 diabetes.",
-      "price": 40.0
+      "price": 40.0,
+      "quantity": 60
     },
     {
+      "id": 6,
       "name": "Lisinopril",
       "description": "Used to treat high blood pressure.",
-      "price": 60.0
+      "price": 60.0,
+      "quantity": 45
     },
     {
+      "id": 7,
       "name": "Simvastatin",
       "description": "Used to lower cholesterol and triglycerides in the blood.",
-      "price": 70.0
+      "price": 70.0,
+      "quantity": 30
     },
     {
+      "id": 8,
       "name": "Montelukast",
       "description": "Used to treat asthma and seasonal allergies.",
-      "price": 90.0
+      "price": 90.0,
+      "quantity": 20
     },
     {
+      "id": 9,
       "name": "Omeprazole",
       "description": "Used to treat heartburn and stomach ulcers.",
-      "price": 35.0
+      "price": 35.0,
+      "quantity": 55
     },
     {
+      "id": 10,
       "name": "Furosemide",
       "description": "Used to treat high blood pressure and edema (fluid retention).",
-      "price": 25.0
+      "price": 25.0,
+      "quantity": 65
     },
     {
+      "id": 11,
       "name": "Diazepam",
       "description": "Used to treat anxiety, muscle spasms, and seizures.",
-      "price": 55.0
+      "price": 55.0,
+      "quantity": 40
     },
     {
+      "id": 12,
       "name": "Amlodipine",
       "description": "Used to treat high blood pressure and chest pain.",
-      "price": 65.0
+      "price": 65.0,
+      "quantity": 35
     },
     {
+      "id": 13,
       "name": "Albuterol",
       "description": "Used to treat asthma and other respiratory conditions.",
-      "price": 75.0
+      "price": 75.0,
+      "quantity": 30
     },
     {
+      "id": 14,
       "name": "Fluoxetine",
       "description": "Used to treat depression, anxiety, and obsessive-compulsive disorder (OCD).",
-      "price": 85.0
+      "price": 85.0,
+      "quantity": 25
     },
     {
+      "id": 15,
       "name": "Prednisone",
       "description": "Used to treat inflammation and allergic reactions.",
-      "price": 45.0
+      "price": 45.0,
+      "quantity": 25
     },
     {
+      "id": 16,
       "name": "Warfarin",
       "description": "Used to prevent blood clots and stroke.",
-      "price": 95.0
+      "price": 95.0,
+      "quantity": 25
     },
     {
+      "id": 17,
       "name": "Levothyroxine",
       "description": "Used to treat an underactive thyroid gland (hypothyroidism).",
-      "price": 50.0
+      "price": 50.0,
+      "quantity": 25
     },
     {
+      "id": 18,
       "name": "Hydrochlorothiazide",
       "description": "Used to treat high blood pressure and edema (fluid retention).",
-      "price": 30.0
+      "price": 30.0,
+      "quantity": 25
     },
     {
+      "id": 19,
       "name": "Loratadine",
       "description": "Used to treat allergies.",
-      "price": 40.0
+      "price": 40.0,
+      "quantity": 25
     }
   ]
 }

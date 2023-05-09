@@ -63,7 +63,7 @@ function Home() {
         rounded="lg"
         display="flex"
         alignItems="center"
-       margin="100px"
+        margin="100px"
       >
         <Box mr={4}>
           <Heading

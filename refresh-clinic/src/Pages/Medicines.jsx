@@ -1,12 +1,5 @@
 import { useEffect, useState } from "react";
-import {
-  Box,
-  Button,
-  Container,
-  Text,
-  Flex,
-  VStack,
-} from "@chakra-ui/react";
+import { Box, Button, Container, Text, Flex, VStack } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
@@ -17,47 +10,51 @@ function Medicine() {
   );
   const [medicineData, setMedicineData] = useState([]);
 
- const handleAddToCart = (medicine) => {
-  if (cart[medicine.name]) {
-    setCart((prevCart) => {
-      const newCart = { ...prevCart };
-      newCart[medicine.name].quantity += 1;
-      return newCart;
-    });
-  } else {
-    setCart((prevCart) => {
-      const newCart = { ...prevCart };
-      newCart[medicine.name] = { ...medicine, quantity: 1 };
-      return newCart;
-    });
-  }
-const cartItems = Object.values(cart);
-  const cartData = cartItems.map(item => {
-    return {
-      name: item.name,
-      price: item.price,
-      quantity: item.quantity
+  const handleAddToCart = (medicine) => {
+    if (cart[medicine.id]) {
+      setCart((prevCart) => {
+        const newCart = { ...prevCart };
+        newCart[medicine.id].quantity += 1;
+        return newCart;
+      });
+    } else {
+      setCart((prevCart) => {
+        const newCart = { ...prevCart };
+        newCart[medicine.id] = { ...medicine, quantity: 1 };
+        return newCart;
+      });
     }
-  });
-  localStorage.setItem("medicineCart", JSON.stringify(cartData));
-};
+  };
+
+  const handleRemoveFromCart = (medicineId) => {
+    setCart((prevCart) => {
+      const newCart = { ...prevCart };
+      delete newCart[medicineId];
+      return newCart;
+    });
+  };
+
   useEffect(() => {
     fetch(
       `http://localhost:${process.env.REACT_APP_JSON_SERVER_PORT}/medicines`
     )
       .then((response) => response.json())
-      .then((data) => setMedicineData(data))
+      .then((data) =>
+        setMedicineData(
+          data.map((medicine) => ({
+            ...medicine,
+            quantity: medicine.quantity - (cart[medicine.id]?.quantity || 0),
+          }))
+        )
+      )
       .catch((error) => console.log(error));
-  }, []);
+  }, [cart]);
 
   useEffect(() => {
     localStorage.setItem("medicineCart", JSON.stringify(cart));
   }, [cart]);
 
- 
-
   const cartItems = Object.values(cart);
-
 
   return (
     <>
@@ -92,16 +89,19 @@ const cartItems = Object.values(cart);
                   </Text>
                 </Flex>
                 <Text fontSize="lg">{medicine.description}</Text>
-                <Button
-                  colorScheme="blue"
-                  mt="4"
-                  onClick={() => handleAddToCart(medicine)}
-                  isDisabled={cart[medicine.id]?.quantity >= medicine.quantity}
-                >
-                  {cart[medicine.id]?.quantity >= medicine.quantity
-                    ? "Out of Stock"
-                    : "Add to Cart"}
-                </Button>
+                {cart[medicine.id] ? (
+                  <Button
+                    colorScheme="red"
+                    mt="4"
+                    onClick={() => handleRemoveFromCart(medicine.id)} // add this line
+                  >
+                    Remove from Cart
+                  </Button>
+                ) : (
+                  <Button mt="4" onClick={() => handleAddToCart(medicine)}>
+                    Add to Cart
+                  </Button>
+                )}
               </Box>
             ))}
           </VStack>

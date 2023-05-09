@@ -19,10 +19,12 @@ function BookAppointment() {
   const [fee, setFee] = useState(0);
   const [patientName, setPatientName] = useState("");
   const [patientPhone, setPatientPhone] = useState("");
-const [appointmentDate, setAppointmentDate] = useState("");
+  const [appointmentDate, setAppointmentDate] = useState("");
   useEffect(() => {
     const fetchDoctor = async () => {
-      const response = await fetch(`http://localhost:${process.env.REACT_APP_JSON_SERVER_PORT}/doctors/${id}`);
+      const response = await fetch(
+        `http://localhost:${process.env.REACT_APP_JSON_SERVER_PORT}/doctors/${id}`
+      );
       const data = await response.json();
       setDoctor(data);
     };
@@ -39,32 +41,38 @@ const [appointmentDate, setAppointmentDate] = useState("");
   const handlePatientNameChange = (event) => {
     setPatientName(event.target.value);
   };
- const handleAppointmentDateChange = (event) => {
+  const handleAppointmentDateChange = (event) => {
     setAppointmentDate(event.target.value);
   };
 
   const handlePatientPhoneChange = (event) => {
     setPatientPhone(event.target.value);
   };
-const handleBookAppointment = () => {
-  const appointmentData = {
-    doctor,
-    time,
-    fee,
-    patient: {
-      name: patientName,
-      phone: patientPhone,
-      fee:fee
-    },
-      date: appointmentDate
+  const handleBookAppointment = () => {
+    const appointmentData = {
+      doctor,
+      time,
+      fee,
+      patient: {
+        name: patientName,
+        phone: patientPhone,
+        fee: fee,
+      },
+      date: appointmentDate,
+    };
+    localStorage.setItem("appointmentData", JSON.stringify(appointmentData));
   };
-  localStorage.setItem("appointmentData", JSON.stringify(appointmentData));
-};
   return (
     <>
       <Navbar />
       <Container maxW="container.xl" mt="8">
-        <Box borderWidth="1px" borderRadius="lg" overflow="hidden" boxShadow="base" p="8">
+        <Box
+          borderWidth="1px"
+          borderRadius="lg"
+          overflow="hidden"
+          boxShadow="base"
+          p="8"
+        >
           <Text fontWeight="bold" fontSize="2xl" mb="4">
             Book an Appointment with {doctor.name}
           </Text>
@@ -74,15 +82,27 @@ const handleBookAppointment = () => {
           <form>
             <FormControl id="patient-name" mb="4">
               <FormLabel>Patient Name</FormLabel>
-              <Input type="text" value={patientName} onChange={handlePatientNameChange} />
+              <Input
+                type="text"
+                value={patientName}
+                onChange={handlePatientNameChange}
+              />
             </FormControl>
             <FormControl id="patient-phone" mb="4">
               <FormLabel>Patient Phone</FormLabel>
-              <Input type="text" value={patientPhone} onChange={handlePatientPhoneChange} />
+              <Input
+                type="text"
+                value={patientPhone}
+                onChange={handlePatientPhoneChange}
+              />
             </FormControl>
-             <FormControl id="appointment-date" mb="4">
+            <FormControl id="appointment-date" mb="4">
               <FormLabel>Appointment Date</FormLabel>
-              <Input type="date" value={appointmentDate} onChange={handleAppointmentDateChange} />
+              <Input
+                type="date"
+                value={appointmentDate}
+                onChange={handleAppointmentDateChange}
+              />
             </FormControl>
             <FormControl id="time" mb="4">
               <FormLabel>Time (in hours)</FormLabel>
