@@ -9,7 +9,8 @@ function DoctorCard({ name, specialty, image }) {
       overflow="hidden"
       boxShadow="base"
     >
-      <Image src={image} alt={`Photo of ${name}`} />
+      <Image src={image} alt={`Photo of ${name}`}  w="100%"  
+      />
 
       <Box p="6">
         <Box d="flex" alignItems="baseline">

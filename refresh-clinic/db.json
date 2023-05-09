@@ -62,9 +62,9 @@
     },
     {
       "id": 152,
-      "name": "Dr. Sheeja Mathai",
+      "name": "Dr. Joseph Nguyen",
       "gender": "F",
-      "image": "/images/doctor9m.jpg",
+      "image": "/images/doctor7m.jpg",
       "specialization": "Pediatrician",
       "availability": {
         "Tuesday": "9am - 12pm",
