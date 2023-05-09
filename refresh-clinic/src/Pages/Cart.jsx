@@ -31,12 +31,21 @@ function Cart() {
     localStorage.setItem("medicineCart", storedCart);
   }, [cart]);
 
-  useEffect(() => {
-    fetch("https://example.com/medicine-data")
-      .then((response) => response.json())
-      .then((data) => setMedicineData(data));
-  }, []);
+  const handleIncreaseQuantity = (medicineId) => {
+    const newCart = { ...cart };
+    newCart[medicineId].quantity += 1;
+    setCart(newCart);
+  };
 
+  const handleDecreaseQuantity = (medicineId) => {
+    const newCart = { ...cart };
+    if (newCart[medicineId].quantity > 1) {
+      newCart[medicineId].quantity -= 1;
+    } else {
+      delete newCart[medicineId];
+    }
+    setCart(newCart);
+  };
   const handleRemoveFromCart = (medicineId) => {
     const newCart = { ...cart };
     delete newCart[medicineId];
@@ -51,7 +60,12 @@ function Cart() {
   return (
     <div>
       <Navbar />
-      <Container maxW="container.xl" mt="8" marginTop="100px" marginBottom="250px">
+      <Container
+        maxW="container.xl"
+        mt="8"
+        marginTop="100px"
+        marginBottom="250px"
+      >
         <Box
           borderWidth="1px"
           borderRadius="lg"
@@ -83,7 +97,21 @@ function Cart() {
                     <Tr key={medicineId}>
                       <Td>{name}</Td>
                       <Td>₹{price}</Td>
-                      <Td>{quantity}</Td>
+                      <Td>
+                        <Button
+                          onClick={() => handleDecreaseQuantity(medicineId)}
+                        >
+                          -
+                        </Button>
+                        <Text display="inline-block" mx="4">
+                          {quantity}
+                        </Text>
+                        <Button
+                          onClick={() => handleIncreaseQuantity(medicineId)}
+                        >
+                          +
+                        </Button>
+                      </Td>
                       <Td>
                         <Button
                           colorScheme="red"
@@ -119,9 +147,8 @@ function Cart() {
           </Link>
         </Box>
       </Container>
-       <Footer/>
+      <Footer />
     </div>
-
   );
 }
 

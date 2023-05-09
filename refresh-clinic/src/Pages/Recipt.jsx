@@ -12,10 +12,26 @@ function Receipt() {
   return (
     <>
       <Navbar />
-      <Container maxW="container.xl" mt="8" marginTop="50px" marginBottom="50px">
-        <Box borderWidth="1px" borderRadius="lg" overflow="hidden" boxShadow="base" p="8">
+      <Container
+        maxW="container.xl"
+        mt="8"
+        marginTop="50px"
+        marginBottom="50px"
+      >
+        <Box
+          borderWidth="1px"
+          borderRadius="lg"
+          overflow="hidden"
+          boxShadow="base"
+          p="8"
+        >
           <Box textAlign="center" mb="4">
-            <Image src={RefreshLogo} alt="RefreshClinic Logo" height="100" mx="auto" />
+            <Image
+              src={RefreshLogo}
+              alt="RefreshClinic Logo"
+              height="100"
+              mx="auto"
+            />
             <Text fontWeight="bold" fontSize="xl" mt="2">
               RefreshClinic
             </Text>

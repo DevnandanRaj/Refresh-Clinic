@@ -3,7 +3,9 @@ import React, { createContext, useState } from "react";
 export const AuthContext = createContext();
 
 function AuthContextProvider(props) {
-   const [isAuth, setIsAuth] = useState(localStorage.getItem("isAuth") === "true");
+  const [isAuth, setIsAuth] = useState(
+    localStorage.getItem("isAuth") === "true"
+  );
 
   const login = () => {
     setIsAuth(true);
