@@ -65,7 +65,12 @@ function Medicine() {
 
   const cartItems = Object.values(cart);
   const searchedMedicineData = medicineData.filter((medicine) => {
-    return medicine.name.toLowerCase().includes(searchTerm.toLowerCase());
+    return (
+      medicine.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      medicine.categories.some((category) =>
+        category.toLowerCase().includes(searchTerm.toLowerCase())
+      )
+    );
   });
 
   const totalPages = Math.ceil(searchedMedicineData.length / 6);
@@ -132,7 +137,7 @@ function Medicine() {
                   <Button
                     colorScheme="red"
                     mt="4"
-                    onClick={() => handleRemoveFromCart(medicine.id)} 
+                    onClick={() => handleRemoveFromCart(medicine.id)}
                   >
                     Remove from Cart
                   </Button>
