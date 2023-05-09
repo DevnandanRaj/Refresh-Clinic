@@ -5,7 +5,6 @@ import AllRoutes from "./Routes/AllRoutes"
 function App() {
   return (
     <ChakraProvider>
-      {/* add other components here */}
       <AllRoutes />
     </ChakraProvider>
   );

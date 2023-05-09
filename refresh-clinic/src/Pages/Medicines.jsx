@@ -1,15 +1,24 @@
 import { useEffect, useState } from "react";
-import { Box, Button, Container, Text, Flex, VStack } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Container,
+  Text,
+  Flex,
+  VStack,
+  Input,
+} from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
 
 function Medicine() {
+  const [medicineData, setMedicineData] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
   const [cart, setCart] = useState(
     () => JSON.parse(localStorage.getItem("medicineCart")) || {}
   );
-  const [medicineData, setMedicineData] = useState([]);
-
   const handleAddToCart = (medicine) => {
     if (cart[medicine.id]) {
       setCart((prevCart) => {
@@ -55,7 +64,23 @@ function Medicine() {
   }, [cart]);
 
   const cartItems = Object.values(cart);
+  const searchedMedicineData = medicineData.filter((medicine) => {
+    return medicine.name.toLowerCase().includes(searchTerm.toLowerCase());
+  });
 
+  const totalPages = Math.ceil(searchedMedicineData.length / 6);
+
+  const handlePrevPage = () => {
+    setCurrentPage((prevPage) => prevPage - 1);
+  };
+
+  const handleNextPage = () => {
+    setCurrentPage((prevPage) => prevPage + 1);
+  };
+
+  const startIndex = (currentPage - 1) * 6;
+  const endIndex = startIndex + 8;
+  const visibleMedicineData = searchedMedicineData.slice(startIndex, endIndex);
   return (
     <>
       <Navbar />
@@ -70,8 +95,19 @@ function Medicine() {
           <Text fontWeight="bold" fontSize="2xl" mb="4">
             Medicines
           </Text>
+          <Flex justifyContent="space-between" alignItems="center" mb="4">
+            <Input
+              mr="40%"
+              placeholder="Search by name or category"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
+            <Link to="/cart">
+              <Button>Cart ({cartItems.length})</Button>
+            </Link>
+          </Flex>
           <VStack spacing="4" align="stretch">
-            {medicineData.map((medicine) => (
+            {visibleMedicineData.map((medicine) => (
               <Box
                 borderWidth="1px"
                 borderRadius="lg"
@@ -82,18 +118,21 @@ function Medicine() {
               >
                 <Flex justifyContent="space-between" alignItems="center" mb="2">
                   <Text fontSize="lg" fontWeight="bold">
-                    {medicine.name}
+                    Name: {medicine.name}
                   </Text>
                   <Text fontSize="lg" fontWeight="bold">
-                    ₹{medicine.price}
+                    Price: ₹{medicine.price}
                   </Text>
                 </Flex>
-                <Text fontSize="lg">{medicine.description}</Text>
+                <Text fontSize="lg" fontWeight="bold">
+                  Category: {medicine.categories.join(", ")}
+                </Text>
+                <Text fontSize="lg">Description: {medicine.description}</Text>
                 {cart[medicine.id] ? (
                   <Button
                     colorScheme="red"
                     mt="4"
-                    onClick={() => handleRemoveFromCart(medicine.id)} // add this line
+                    onClick={() => handleRemoveFromCart(medicine.id)} 
                   >
                     Remove from Cart
                   </Button>
@@ -105,9 +144,19 @@ function Medicine() {
               </Box>
             ))}
           </VStack>
-          <Link to="/cart">
-            <Button mt="8">Cart ({cartItems.length})</Button>
-          </Link>
+          <VStack mt="4">
+            <Flex justifyContent="space-between" w="100%">
+              {currentPage > 1 && (
+                <Button onClick={handlePrevPage}>Previous</Button>
+              )}
+              <Text>
+                {currentPage} of {totalPages}
+              </Text>
+              {currentPage < totalPages && (
+                <Button onClick={handleNextPage}>Next</Button>
+              )}
+            </Flex>
+          </VStack>
         </Box>
       </Container>
       <Footer />

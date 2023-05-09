@@ -24,7 +24,6 @@ function BookTest() {
   const handleSubmit = (event) => {
     event.preventDefault();
     setSubmitting(true);
-    // TODO: Handle form submission
   };
 
   const bgColor = useColorModeValue("gray.50", "gray.800");

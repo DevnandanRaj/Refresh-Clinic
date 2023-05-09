@@ -13,7 +13,7 @@ function Home() {
     fetch(`http://localhost:${process.env.REACT_APP_JSON_SERVER_PORT}/doctors`)
       .then((response) => response.json())
       .then((data) => {
-        setDoctors(data.slice(0, 6)); // limit to 4 doctors
+        setDoctors(data.slice(0, 6)); 
       })
       .catch((error) => {
         console.log(error);
