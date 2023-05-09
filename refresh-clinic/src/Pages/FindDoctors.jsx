@@ -25,7 +25,7 @@ function FindDoctors() {
     <>
       <Navbar />
       <Container maxW="container.xl" mt="8">
-        <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={8}>
+        <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={8} marginTop="50px" marginBottom="50PX">
           {doctors.map((doctor) => (
             <Box
               key={doctor.id}
@@ -34,7 +34,7 @@ function FindDoctors() {
               overflow="hidden"
               boxShadow="base"
             >
-              <Image src={doctor.image} alt={doctor.name} />
+              <Image src={doctor.image} alt={doctor.name} w="100%" />
               <Box p="6">
                 <Text fontWeight="bold" fontSize="2xl" mb="2">
                   {doctor.name}
