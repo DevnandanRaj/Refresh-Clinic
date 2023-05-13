@@ -44,6 +44,12 @@
       "email": "admin@bfc.com",
       "password": "1234",
       "id": 8
+    },
+    {
+      "username": "Dev",
+      "email": "admin@bfc.com",
+      "password": "12345678",
+      "id": 9
     }
   ],
   "doctors": [
