@@ -20,6 +20,30 @@
       "email": "Dev",
       "password": "cityslicka",
       "id": 4
+    },
+    {
+      "username": "Dev",
+      "email": "admin@bfc.com",
+      "password": "1234",
+      "id": 5
+    },
+    {
+      "username": "Dev",
+      "email": "eve.holt@reqres.in",
+      "password": "1234",
+      "id": 6
+    },
+    {
+      "username": "Dev",
+      "email": "admin@bfc.com",
+      "password": "1234",
+      "id": 7
+    },
+    {
+      "username": "Dev",
+      "email": "admin@bfc.com",
+      "password": "1234",
+      "id": 8
     }
   ],
   "doctors": [
@@ -115,153 +139,203 @@
       "id": 1,
       "name": "Paracetamol",
       "description": "Used to relieve mild to moderate pain, fever, and inflammation.",
-      "price": 30.0,
+      "price": 30,
       "quantity": 100,
-      "categories": ["Pain Relief", "Fever Reducer", "Anti-Inflammatory"]
+      "categories": [
+        "Pain Relief",
+        "Fever Reducer",
+        "Anti-Inflammatory"
+      ]
     },
     {
       "id": 2,
       "name": "Ibuprofen",
       "description": "Used to relieve pain, reduce fever, and inflammation.",
-      "price": 50.0,
+      "price": 50,
       "quantity": 50,
-      "categories": ["Pain Relief", "Fever Reducer", "Anti-Inflammatory"]
+      "categories": [
+        "Pain Relief",
+        "Fever Reducer",
+        "Anti-Inflammatory"
+      ]
     },
     {
       "id": 3,
       "name": "Aspirin",
       "description": "Used to relieve pain, reduce fever, and inflammation.",
-      "price": 20.0,
+      "price": 20,
       "quantity": 75,
-      "categories": ["Pain Relief", "Fever Reducer", "Anti-Inflammatory"]
+      "categories": [
+        "Pain Relief",
+        "Fever Reducer",
+        "Anti-Inflammatory"
+      ]
     },
     {
       "id": 4,
       "name": "Ciprofloxacin",
       "description": "Used to treat bacterial infections.",
-      "price": 80.0,
+      "price": 80,
       "quantity": 25,
-      "categories": ["Antibiotic"]
+      "categories": [
+        "Antibiotic"
+      ]
     },
     {
       "id": 5,
       "name": "Metformin",
       "description": "Used to treat type 2 diabetes.",
-      "price": 40.0,
+      "price": 40,
       "quantity": 60,
-      "categories": ["Antidiabetic"]
+      "categories": [
+        "Antidiabetic"
+      ]
     },
     {
       "id": 6,
       "name": "Lisinopril",
       "description": "Used to treat high blood pressure.",
-      "price": 60.0,
+      "price": 60,
       "quantity": 45,
-      "categories": ["Antihypertensive"]
+      "categories": [
+        "Antihypertensive"
+      ]
     },
     {
       "id": 7,
       "name": "Simvastatin",
       "description": "Used to lower cholesterol and triglycerides in the blood.",
-      "price": 70.0,
+      "price": 70,
       "quantity": 30,
-      "categories": ["Antilipemic"]
+      "categories": [
+        "Antilipemic"
+      ]
     },
     {
       "id": 8,
       "name": "Montelukast",
       "description": "Used to treat asthma and seasonal allergies.",
-      "price": 90.0,
+      "price": 90,
       "quantity": 20,
-      "categories": ["Antiallergy", "Antiasthmatic"]
+      "categories": [
+        "Antiallergy",
+        "Antiasthmatic"
+      ]
     },
     {
       "id": 9,
       "name": "Omeprazole",
       "description": "Used to treat heartburn and stomach ulcers.",
-      "price": 35.0,
+      "price": 35,
       "quantity": 55,
-      "categories": ["Gastric Medication"]
+      "categories": [
+        "Gastric Medication"
+      ]
     },
     {
       "id": 10,
       "name": "Furosemide",
       "description": "Used to treat high blood pressure and edema (fluid retention).",
-      "price": 25.0,
+      "price": 25,
       "quantity": 65,
-      "categories": ["Diuretic", "Antihypertensive"]
+      "categories": [
+        "Diuretic",
+        "Antihypertensive"
+      ]
     },
     {
       "id": 11,
       "name": "Diazepam",
       "description": "Used to treat anxiety, muscle spasms, and seizures.",
-      "price": 55.0,
+      "price": 55,
       "quantity": 40,
-      "categories": ["Anxiolytic", "Anticonvulsant", "Muscle Relaxant"]
+      "categories": [
+        "Anxiolytic",
+        "Anticonvulsant",
+        "Muscle Relaxant"
+      ]
     },
     {
       "id": 12,
       "name": "Amlodipine",
       "description": "Used to treat high blood pressure and chest pain.",
-      "price": 65.0,
+      "price": 65,
       "quantity": 35,
-      "categories": ["Antihypertensive"]
+      "categories": [
+        "Antihypertensive"
+      ]
     },
     {
       "id": 13,
       "name": "Albuterol",
       "description": "Used to treat asthma and other respiratory conditions.",
-      "price": 75.0,
+      "price": 75,
       "quantity": 30,
-      "categories": ["Bronchodilator"]
+      "categories": [
+        "Bronchodilator"
+      ]
     },
     {
       "id": 14,
       "name": "Fluoxetine",
       "description": "Used to treat depression, anxiety, and obsessive-compulsive disorder (OCD).",
-      "price": 85.0,
+      "price": 85,
       "quantity": 25,
-      "categories": ["Antidepressant"]
+      "categories": [
+        "Antidepressant"
+      ]
     },
     {
       "id": 15,
       "name": "Prednisone",
       "description": "Used to treat inflammation and allergic reactions.",
-      "price": 45.0,
+      "price": 45,
       "quantity": 25,
-      "categories": ["Steroid", "Anti-Inflammatory"]
+      "categories": [
+        "Steroid",
+        "Anti-Inflammatory"
+      ]
     },
     {
       "id": 16,
       "name": "Warfarin",
       "description": "Used to prevent blood clots and stroke.",
-      "price": 95.0,
+      "price": 95,
       "quantity": 25,
-      "categories": ["Anticoagulant"]
+      "categories": [
+        "Anticoagulant"
+      ]
     },
     {
       "id": 17,
       "name": "Levothyroxine",
       "description": "Used to treat an underactive thyroid gland (hypothyroidism).",
-      "price": 50.0,
+      "price": 50,
       "quantity": 25,
-      "categories": ["Thyroid"]
+      "categories": [
+        "Thyroid"
+      ]
     },
     {
       "id": 18,
       "name": "Hydrochlorothiazide",
       "description": "Used to treat high blood pressure and edema (fluid retention).",
-      "price": 30.0,
+      "price": 30,
       "quantity": 25,
-      "categories": ["Diuretic", "Antihypertensive"]
+      "categories": [
+        "Diuretic",
+        "Antihypertensive"
+      ]
     },
     {
       "id": 19,
       "name": "Loratadine",
       "description": "Used to treat allergies.",
-      "price": 40.0,
+      "price": 40,
       "quantity": 25,
-      "categories": ["Anticonvulsant"]
+      "categories": [
+        "Anticonvulsant"
+      ]
     }
   ]
 }

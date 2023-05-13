@@ -13,7 +13,7 @@ function Home() {
     fetch(`http://localhost:${process.env.REACT_APP_JSON_SERVER_PORT}/doctors`)
       .then((response) => response.json())
       .then((data) => {
-        setDoctors(data.slice(0, 6)); 
+        setDoctors(data.slice(0, 6));
       })
       .catch((error) => {
         console.log(error);
@@ -53,36 +53,40 @@ function Home() {
             </Text>
           </Box>
           <Box flex="1" ml={{ md: "12" }}>
-            <Image src={home1} alt="Doctor and patient discussing diagnosis" />
+            <Image src={home1} alt="Doctor" />
           </Box>
         </Flex>
       </Box>
-      <Box
-        bgGradient="linear(to-r, blue.500, teal.500)"
-        p="6"
-        rounded="lg"
-        display="flex"
-        alignItems="center"
-        margin="100px"
-      >
-        <Box mr={4}>
-          <Heading
-            size="md"
-            fontWeight="extrabold"
-            letterSpacing="tight"
-            color="white"
-            mb="5"
-          >
-            COVID-19 Resource Center
-          </Heading>
-          <Text fontSize="md" color="white">
-            Now more than ever, better medicine matters. Get the latest
-            information on how COVID-19 may affect you, including vaccination,
-            testing, symptoms, treatment, safety and current visitor policies.
-          </Text>
-        </Box>
-        <Image src={covid} alt="COVID-19 Safety" borderRadius="md" w="1500px" />
-      </Box>
+     <Box
+  bgImage={`url(${covid})`}
+  bgRepeat="no-repeat"
+  bgSize="cover"
+  p="6"
+  rounded="lg"
+  display="flex"
+  flexDirection={{ base: "column", md: "row" }}
+  alignItems="center"
+  margin={{ base: "50px", md: "100px" }}
+  mx="auto"
+  maxW={{ base: "90%", md: "1000px" }}
+>
+  <Box mb={{ base: "4", md: "0" }} mr={{ base: "0", md: "4" }}>
+    <Heading
+      size="md"
+      fontWeight="extrabold"
+      letterSpacing="tight"
+      color="white"
+      mb="5"
+    >
+      COVID-19 Resource Center
+    </Heading>
+    <Text fontSize="md" color="white">
+      Now more than ever, better medicine matters. Get the latest
+      information on how COVID-19 may affect you, including vaccination,
+      testing, symptoms, treatment, safety and current visitor policies.
+    </Text>
+  </Box>
+</Box>
       <Flex flexWrap="wrap" justifyContent="center" my={8}>
         <Box width={{ base: "100%", md: "45%" }} p={4}>
           <Heading size="md" mb={4}>
