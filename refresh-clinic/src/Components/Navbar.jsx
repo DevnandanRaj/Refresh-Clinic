@@ -74,7 +74,7 @@ function Navbar() {
                 variant="ghost"
                 _hover={{ color: hoverColor }}
               >
-                FindDoctor
+                Find Doctor
               </Button>
             </Link>
             <Link to="/finddoctors">
