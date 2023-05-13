@@ -102,7 +102,7 @@ function Medicine() {
           </Text>
           <Flex justifyContent="space-between" alignItems="center" mb="4">
             <Input
-              mr="40%"
+              mr="10%"
               placeholder="Search by name or category"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
