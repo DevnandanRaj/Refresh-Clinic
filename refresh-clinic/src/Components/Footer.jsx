@@ -6,7 +6,7 @@ function Footer() {
   const isSmallScreen = useBreakpointValue({ base: true, sm: true, md: false });
 
   return (
-    <Box bg="teal" py={4} maxWidth="960px" mx="auto">
+    <Box bg="teal" py={4} maxWidth="100%" mx="auto">
       <Stack
         direction={isSmallScreen ? "column" : "row"}
         spacing="6"
