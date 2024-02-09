@@ -1,3 +1,4 @@
+import React, { useState, useContext } from "react";
 import {
   Box,
   Button,
@@ -16,31 +17,34 @@ import {
   useToast,
 } from "@chakra-ui/react";
 import { AuthContext } from "../Context/AuthContextProvider";
-import { useState, useContext } from "react";
-import RefreshLogo from "../Resources/RefreshLogo.png";
 import { Link, Navigate } from "react-router-dom";
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
+import RefreshLogo from "../Resources/RefreshLogo.png";
+
 function Login() {
-  const [username, setUsername] = useState("");
+  const [Username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const toast = useToast();
   const { login, isAuth } = useContext(AuthContext);
 
   const handleLogin = async (event) => {
     event.preventDefault();
+    setIsLoading(true);
     try {
       const response = await fetch(
-        `http://localhost:${process.env.REACT_APP_JSON_SERVER_PORT}/users?username=${username}&password=${password}`,
+        `https://refresh-clinic-server.onrender.com/auth/login`,
         {
-          method: "GET",
+          method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
+          body: JSON.stringify({ Username, password }),
         }
       );
       const data = await response.json();
-      if (data.length > 0) {
+      if (response.ok) {
         login();
         toast({
           title: "Login Successful",
@@ -51,6 +55,7 @@ function Login() {
       } else {
         toast({
           title: "Login Failed",
+          description: data.message,
           status: "error",
           duration: 3000,
           isClosable: true,
@@ -58,11 +63,22 @@ function Login() {
       }
     } catch (error) {
       console.error(error);
+      toast({
+        title: "Error",
+        description: "An unexpected error occurred.",
+        status: "error",
+        duration: 3000,
+        isClosable: true,
+      });
+    } finally {
+      setIsLoading(false);
     }
   };
+
   if (isAuth) {
     return <Navigate to="/" />;
   }
+
   return (
     <>
       <Navbar />
@@ -100,44 +116,43 @@ function Login() {
           >
             <Stack spacing="6">
               <Stack spacing="5">
-                <FormControl>
-                  <FormLabel htmlFor="username">Username</FormLabel>
-                  <Input
-                    id="username"
-                    type="name"
-                    value={username}
-                    onChange={(event) => setUsername(event.target.value)}
-                  />
-                </FormControl>
-                <FormControl>
-                  <FormLabel htmlFor="password">Password</FormLabel>
-                  <Input
-                    id="password"
-                    type="password"
-                    value={password}
-                    onChange={(event) => setPassword(event.target.value)}
-                  />
-                </FormControl>
+                <form onSubmit={handleLogin}>
+                  <FormControl>
+                    <FormLabel htmlFor="username">Username</FormLabel>
+                    <Input
+                      id="username"
+                      type="text"
+                      value={Username}
+                      onChange={(event) => setUsername(event.target.value)}
+                    />
+                  </FormControl>
+                  <FormControl>
+                    <FormLabel htmlFor="password">Password</FormLabel>
+                    <Input
+                      id="password"
+                      type="password"
+                      value={password}
+                      onChange={(event) => setPassword(event.target.value)}
+                    />
+                  </FormControl>
+                  <HStack justify="space-between">
+                    <Checkbox defaultChecked>Remember me</Checkbox>
+                    <Button
+                      type="submit"
+                      variant="link"
+                      colorScheme="blue"
+                      size="sm"
+                      isLoading={isLoading}
+                    >
+                      {isLoading ? "Logging in..." : "Log in"}
+                    </Button>
+                  </HStack>
+                </form>
               </Stack>
-              <HStack justify="space-between">
-                <Checkbox defaultChecked>Remember me</Checkbox>
-                <Button variant="link" colorScheme="blue" size="sm">
-                  Forgot password?
-                </Button>
+              <HStack>
+                <Divider />
+                <Divider />
               </HStack>
-              <Stack spacing="6">
-                <Button
-                  variant="ghost"
-                  colorScheme="teal"
-                  onClick={handleLogin}
-                >
-                  Log in
-                </Button>
-                <HStack>
-                  <Divider />
-                  <Divider />
-                </HStack>
-              </Stack>
             </Stack>
           </Box>
         </Stack>
@@ -146,4 +161,5 @@ function Login() {
     </>
   );
 }
+
 export default Login;

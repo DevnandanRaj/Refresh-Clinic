@@ -45,7 +45,7 @@ function Medicine() {
 
   useEffect(() => {
     fetch(
-      `http://localhost:${process.env.REACT_APP_JSON_SERVER_PORT}/medicines`
+      `https://refresh-clinic-server.onrender.com/medicines/`
     )
       .then((response) => response.json())
       .then((data) =>

@@ -14,29 +14,29 @@ import {
   Image,
   useToast,
 } from "@chakra-ui/react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate} from "react-router-dom";
 import RefreshLogo from "../Resources/RefreshLogo.png";
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
 function Signup() {
-  const [username, setUsername] = useState("");
+  const [Username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-
+   const navigate = useNavigate();
   const toast = useToast();
   const handleSignup = async (event) => {
     event.preventDefault();
     try {
       const response = await fetch(
-        `http://localhost:${process.env.REACT_APP_JSON_SERVER_PORT}/users`,
+        `https://refresh-clinic-server.onrender.com/auth/register`,
         {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            username,
+            Username,
             email,
             password,
           }),
@@ -50,6 +50,7 @@ function Signup() {
           duration: 3000,
           isClosable: true,
         });
+          navigate("/login"); 
       } else {
         setError(data.error);
       }
@@ -101,7 +102,7 @@ function Signup() {
                     <Input
                       id="username"
                       type="name"
-                      value={username}
+                      value={Username}
                       onChange={(event) => setUsername(event.target.value)}
                     />
                   </FormControl>

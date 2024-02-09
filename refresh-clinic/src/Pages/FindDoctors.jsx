@@ -15,7 +15,7 @@ function FindDoctors() {
   const [doctors, setDoctors] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:${process.env.REACT_APP_JSON_SERVER_PORT}/doctors`)
+    fetch(`https://refresh-clinic-server.onrender.com/doctors/`)
       .then((response) => response.json())
       .then((data) => setDoctors(data))
       .catch((error) => console.log(error));
